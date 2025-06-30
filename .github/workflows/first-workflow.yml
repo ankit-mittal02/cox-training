@@ -11,23 +11,27 @@ on:
   
   workflow_dispatch:
 
+env:
+  NODE_ENV: production
+  API_URL: https://api.example.com
+
 jobs:
   build-app:
     runs-on: ubuntu-latest
-  
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
       - name: echo message
-        run: echo "Hello, from ubuntu-latest!"
+        run: echo "Hello, from ubuntu-latest! and env is $NODE_ENV"
 
   build-api:
     runs-on: windows-latest
 
     steps:
       - name: echo message
-        run: echo "Hello, from windows-latest!"
+        run: echo "Hello, from windows-latest! and env is ${{ env.NODE_ENV }}"
   
   build-db:
     runs-on: macos-latest
