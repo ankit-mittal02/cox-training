@@ -1,0 +1,17 @@
+name: Notify Slack
+
+on:
+  push:
+    branches:
+      - main  # or any branch you want to trigger on
+  workflow_dispatch:
+jobs:
+  slack_notification:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send Slack message
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+          --data '{"text":"✅ Code pushed to *main* branch on GitHub!"}' \
+          ${{ secrets.SLACK_WEBHOOK_URL }}
