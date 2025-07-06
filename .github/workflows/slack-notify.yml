@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 jobs:
   slack_notification:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
       - name: Send Slack message
