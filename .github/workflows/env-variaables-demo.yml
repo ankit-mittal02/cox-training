@@ -1,0 +1,21 @@
+# First workflow
+
+name: Environment Variables Demo
+
+on:
+  workflow_dispatch:
+
+env:
+  NODE_ENV: production
+  API_URL: https://api.example.com
+
+jobs:
+  build-app:
+    runs-on: macos-latest
+
+    steps:
+      - name: Set Environment Variable
+        run: echo "COX_ENV=development" >> $GITHUB_ENV
+
+      - name: Echo message
+        run: echo "Hello, from macos-latest! and env is $NODE_ENV and COX_ENV is $COX_ENV"
