@@ -14,7 +14,7 @@ jobs:
     runs-on: macos-latest
 
     env:
-      name: production
+      name: 'production'
       NODE_ENV: development  # Override the global NODE_ENV for this job
 
     steps:
