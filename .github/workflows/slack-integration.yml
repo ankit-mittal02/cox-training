@@ -17,5 +17,5 @@ jobs:
       - name: Send Notification to Slack
         run: |
           curl -X POST -H 'Content-type: application/json' \
-          --data '{"text":"✅ Code pushed to *main* branch on GitHub!"}' \
+          --data '{"text":"Notification: A new commit has been pushed to the main branch."}' \
           ${{ secrets.SLACK_WEBHOOK_URL }}
