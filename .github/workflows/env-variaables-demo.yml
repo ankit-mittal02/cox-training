@@ -13,9 +13,16 @@ jobs:
   build-app:
     runs-on: macos-latest
 
+    env:
+      name: production
+      NODE_ENV: development  # Override the global NODE_ENV for this job
+
     steps:
       - name: Set Environment Variable
         run: echo "COX_ENV=development" >> $GITHUB_ENV
 
       - name: Echo message
         run: echo "Hello, from macos-latest! and env is $NODE_ENV and COX_ENV is $COX_ENV"
+
+      - name: Print Secret
+        run: echo "App key is ${{ secrets.AWS_APP_KEYS }}"
