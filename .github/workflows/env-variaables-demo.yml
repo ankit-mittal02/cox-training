@@ -13,9 +13,9 @@ jobs:
   build-app:
     runs-on: macos-latest
 
-    env:
+    environment:
       name: 'production'
-      NODE_ENV: development  # Override the global NODE_ENV for this job
+      url: 'https://production.example.com'
 
     steps:
       - name: Set Environment Variable
