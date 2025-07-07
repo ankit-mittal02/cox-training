@@ -1,0 +1,21 @@
+# First workflow
+
+name: Integration Workflow with Slack
+
+on:
+  workflow_dispatch:
+
+env:
+  NODE_ENV: production
+  API_URL: https://api.example.com
+
+jobs:
+  build-app:
+    runs-on: macos-latest
+
+    steps:
+      - name: Send Notification to Slack
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+          --data '{"text":"✅ Code pushed to *main* branch on GitHub!"}' \
+          ${{ secrets.SLACK_WEBHOOK_URL }}
